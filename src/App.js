@@ -2,6 +2,9 @@ import React from "react";
 import logo from "./logo.svg";
 // import './App.css';
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { connect } from "react-redux";
+import auth from "./store/reducers/authReducer";
+
 function App() {
   return (
     <div className="App">
@@ -26,4 +29,10 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  ...state.auth,
+});
+
+const mapDispatchToProps = (dispatch) => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
